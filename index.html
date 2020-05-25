@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Memory Game</title>
+        <!-- <meta name="description" content="An interactive getting started guide for Brackets."> -->
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <div class="bg">
+            <h1 id="title">Memory Game</h1>
+            <div class="panel">
+                <div class="btnContainer" onclick= "setCards(cards)">
+                    <span>START</span>
+                </div>
+                <div id="timer">
+                    <span id="min">00</span>
+                    <span id="colon">:</span>
+                    <span id="sec">00</span>
+                </div>
+                <div id="BestScore">
+                    <span>BEST SCORE</span>
+                </div>
+                <div class="score">
+                    <div id="first">00 : 00</div>
+                    <div id="second">00 : 00</div>
+                    <div id="third">00 : 00</div>
+                </div>
+            </div>
+            <div class="board"></div>
+        </div>
+    </body>
+    <script src = "script.js"></script>
+</html>
