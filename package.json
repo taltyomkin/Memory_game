@@ -2,10 +2,13 @@
   "name": "my_memory_game",
   "version": "1.0.0",
   "description": "Memory Game",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "start": "node app"
   },
   "author": "Tal Tyomkin",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
