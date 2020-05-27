@@ -1,9 +1,19 @@
-let cards, choosenCards = [];
+let choosenCards = [];
 let matchCount;
+
+// Get data from localStorage and set it in UI
+let records = JSON.parse(localStorage.getItem('items')) || [];
+
 const first = document.querySelector('#first');
+first.innerHTML =  records[0] || '00 : 00';
+
 const second = document.querySelector('#second');
+second.innerHTML =  records[1] || '00 : 00';
+
 const third = document.querySelector('#third');
-const records = [];
+third.innerHTML =  records[2] || '00 : 00';
+
+// ---------------------------------------------
 
 const content = [
    {icon:'👹', id: 1}, {icon:'👹', id: 2},
@@ -18,6 +28,7 @@ const shuffleContenet = content => content.sort(() => 0.5 - Math.random())
 
 const board = document.querySelector('.board');
 
+// Sets the cards board
 const createCards = content => {
    shuffleContenet(content);
     for(let i = 0; i < content.length; i++) {
@@ -34,11 +45,37 @@ const createCards = content => {
     }
     cards = board.querySelectorAll('.flip-card-inner'); 
 }
+// ---------------------------------------------
 
+// Clear cards befor sets them on click Btn
 const DeleteCards = () => {
    board.innerHTML = '';
 }
+// ---------------------------------------------
 
+//Sets new board
+const setCards = () => {
+   DeleteCards();
+   createCards(content);
+
+   matchCount = 0;
+
+   for( let i = 0; i < cards.length; i++) {
+         setTimeout( () => {
+         cards[i].classList.add('setCards');
+         cards[i].addEventListener('click', () => showCard(cards[i]));
+      },i*100);
+   }
+
+   clearInterval(timer);
+   totSec = 0;
+   sec.innerHTML = '00';
+   min.innerHTML = '00';
+   timer = setInterval(() => setTime(),1000); 
+}
+// ----------------------------------------------
+
+// Handling cards transition & game logic
 const showCard = a => {
    if (a.children[0].classList.value === 'flip-card-front seccess') {
       return
@@ -66,17 +103,24 @@ const showCard = a => {
          if(matchCount === 6){
             clearInterval(timer);
             let score = min.innerText.concat(' : ',sec.innerText);
-            records.push(score);
-            records.sort();
-            first.innerHTML =  records[0] || '00 : 00';
-            second.innerHTML = records[1] || '00 : 00';
-            third.innerHTML = records[2] || '00 : 00';
-            console.log('records',typeof(records), records);
+            let exist = records.includes(score);
+
+            if(!exist){
+               records.push(score);
+               records.sort();
+               records.length = 3;
+               first.innerHTML =  records[0] || '00 : 00';
+               second.innerHTML = records[1] || '00 : 00';
+               third.innerHTML = records[2] || '00 : 00';
+            }
+
+            localStorage.clear();
+            localStorage.setItem('items', JSON.stringify(records));
          }
       }
-
    }
 }
+//--------------------------------------------------------
 
 const cardDontMatch = () => {
    choosenCards.forEach(match => {
@@ -85,28 +129,9 @@ const cardDontMatch = () => {
    });
 }
 
-const setCards = () => {
-   DeleteCards();
-   createCards(content);
-
-   matchCount = 0;
-
-   for( let i = 0; i < cards.length; i++) {
-         setTimeout( () => {
-         cards[i].classList.add('setCards');
-         cards[i].addEventListener('click', () => showCard(cards[i]));
-      },i*100);
-   }
-
-   clearInterval(timer);
-   totSec = 0;
-   sec.innerHTML = '00';
-   min.innerHTML = '00';
-   timer = setInterval(() => setTime(),1000); 
-}
-
 createCards(content);
 
+//Set intreval to UI
 let min = document.getElementById('min');
 let sec = document.getElementById('sec');
 let timer;
@@ -125,6 +150,7 @@ const pad = val => {
       return valString;
    }
 }
+//------------------------------------------------
 
 
 
