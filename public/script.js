@@ -47,15 +47,9 @@ const createCards = content => {
 }
 // ---------------------------------------------
 
-// Clear cards befor sets them on click Btn
-const DeleteCards = () => {
-   board.innerHTML = '';
-}
-// ---------------------------------------------
-
 //Sets new board
 const setCards = () => {
-   DeleteCards();
+   board.innerHTML = '';
    createCards(content);
 
    matchCount = 0;
