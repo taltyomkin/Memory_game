@@ -115,15 +115,10 @@
   }
   
   .flip-card-front {
-    background-color: rgb(168, 80, 57);
-    box-shadow: 0 3px 0 rgb(70, 33, 23);
+    background-color: rgb(87, 75, 105);
+    box-shadow: 0 3px 0 rgb(41, 35, 49);
     transform: rotateY(540deg);
   }
-
-.icon{
-    font-size:calc(15vh - 20px);
-}
-
 .flip-card-inner.flip {
   transition: transform 0.8s ease;
     transform: rotateY(-180deg);
@@ -141,5 +136,13 @@
 .newGame{
   width: 25%;
   height: 10%;
+}
+.backIcon{
+  width: 10vh;
+  height: 10vh;
+}
+.frontIcon{
+  width: 18vh;
+  height: 18vh;
 }
    

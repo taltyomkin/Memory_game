@@ -16,12 +16,12 @@ third.innerHTML =  records[2] || '00 : 00';
 // ---------------------------------------------
 
 const content = [
-   {icon:'👹', id: 1}, {icon:'👹', id: 2},
-   {icon:'👺', id: 3}, {icon:'👺', id: 4},
-   {icon:'👽', id: 5}, {icon:'👽', id: 6},
-   {icon:'💀', id: 7}, {icon:'💀', id: 8},
-   {icon:'🤖', id: 9}, {icon:'🤖', id: 10},
-   {icon:'🤡', id: 11}, {icon:'🤡', id: 12},
+   {icon:'one', id: 1}, {icon:'one', id: 2},
+   {icon:'two', id: 3}, {icon:'two', id: 4},
+   {icon:'three', id: 5}, {icon:'three', id: 6},
+   {icon:'forr', id: 7}, {icon:'forr', id: 8},
+   {icon:'five', id: 9}, {icon:'five', id: 10},
+   {icon:'six', id: 11}, {icon:'six', id: 12},
 ];
 
 const shuffleContenet = content => content.sort(() => 0.5 - Math.random())
@@ -35,15 +35,16 @@ const createCards = content => {
         board.innerHTML += `<div class="flip-card">
                              <div id=${content[i].id} class="flip-card-inner">
                                  <div class="flip-card-front">
-                                     <span class="icon">${content[i].icon}</span>
+                                    <img src="./assets/${content[i].icon}.svg" alt="" class="frontIcon"  />
                                  </div>
                                  <div class="flip-card-back">
-                                    <span class="icon">⚜️</span>
+                                    <img src="./assets/star.svg" alt="" class="backIcon"  />
                                  </ div>
                              </div>
                            </div>`;
     }
-    cards = board.querySelectorAll('.flip-card-inner'); 
+    cards = board.querySelectorAll('.flip-card-inner');
+
 }
 // ---------------------------------------------
 
@@ -71,6 +72,7 @@ const setCards = () => {
 
 // Handling cards transition & game logic
 const showCard = a => {
+
    if (a.children[0].classList.value === 'flip-card-front seccess') {
       return
    } else {
@@ -80,9 +82,9 @@ const showCard = a => {
          a.classList.add('flip');
       }
    }
-   
+  
    if (choosenCards.length == 2){
-      if (choosenCards[0].innerText === choosenCards[1].innerText){
+      if (choosenCards[0].children[0].innerHTML === choosenCards[1].children[0].innerHTML){
          choosenCards.forEach(match => {
             let goodFit = match.querySelector('.flip-card-front')
             goodFit.classList.add('seccess');
