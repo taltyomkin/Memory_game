@@ -4,10 +4,10 @@
 }
 #title{
   position: absolute;
-  left: 12vh;
+  left: calc(18vh - 40px);
   top: 10vh;
   margin: 0;
-  font-size: 7vh;
+  font-size: calc(9vh - 15px);
   color: rgb(70, 33, 23); 
   box-shadow: 0 2px 0 rgb(70, 33, 23);
 }
