@@ -40,8 +40,8 @@
   color: white;
   background-color: rgb(121, 33, 33);
   box-shadow: 0 0 0 1px rgb(85, 25, 25);
-  width: 80px;
-  height: 40px;
+  width: 8vw;
+  height: 3vw;
   margin-bottom: 4vh;
   border-radius: 8px;
 }
@@ -49,16 +49,12 @@
   box-shadow: 0 0 0 rgb(70, 33, 23);
   color: rgb(212, 212, 212);
 }
-.newGame{
-  width: 40px;
-}
 #timer{
-  font-size: 35px;
+  font-size: 2.7vw;
   margin-bottom: 4vh;
   color: rgb(94, 44, 31); 
-  /* box-shadow: 0 1px 0 rgb(255, 255, 255); */
   background: rgb(233, 196, 106);
-  width: 23.5vh;
+  width: 12vw;
   padding: 1vh 0;
   display: flex;
   justify-content: center;
@@ -66,7 +62,7 @@
 }
 #BestScore{
   margin-bottom: 3vh;
-  font-size: 18px;
+  font-size: calc(1.3vw + 5px);
   color: rgb(233, 196, 106); 
   box-shadow: 0 1px 0 rgb(233, 196, 106); 
 }
@@ -75,7 +71,7 @@
 }
 .score{
   color: rgb(233, 196, 106); 
-  font-size: 28px;
+  font-size: 2.4vw;
 }
 .board {
     background:rgb(244, 162, 97);
@@ -132,10 +128,6 @@
     transition: background-color 1.4s ease;
     background: rgb(40, 136, 91);
     box-shadow: 0 3px 0 rgb(23, 80, 53);
-}
-.newGame{
-  width: 25%;
-  height: 10%;
 }
 .backIcon{
   width: 10vh;
